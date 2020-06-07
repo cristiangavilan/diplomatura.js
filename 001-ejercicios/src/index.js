@@ -12,12 +12,12 @@ console.log('Ejecutando ejercicios materiasAprobadasByNombreAlumno.');
 const materiasAprobadasPorSuzana = materiasAprobadasByNombreAlumno(
   'Suzana Mendez'
 );
-console.log('Materias aprobadas por Suzana:', materiasAprobadasPorSuzana);
+//console.log('Materias aprobadas por Suzana:', materiasAprobadasPorSuzana);
 
 const materiasAprobadasPorAlina = materiasAprobadasByNombreAlumno(
   'Alina Robles'
 );
-console.log('Materias aprobadas por Alina:', materiasAprobadasPorAlina);
+//console.log('Materias aprobadas por Alina:', materiasAprobadasPorAlina);
 
 // expandirInfoUniversidadByNombre
 console.log('------------------------------------------------------');

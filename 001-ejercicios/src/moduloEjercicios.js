@@ -19,12 +19,41 @@ import basededatos from './basededatos';
       universidad: 2,
     }
   ]
- * @param {number} alumnoId el id del alumno
+ * @param {string} nombreAlumno el id del alumno
  */
 export const materiasAprobadasByNombreAlumno = (nombreAlumno) => {
   // Ejemplo de como accedo a datos dentro de la base de datos
-  // console.log(basededatos.alumnos);
-  return [];
+  //console.log(basededatos.alumnos);
+  let retorno = [];
+  // Primera resolución
+  // basededatos.alumnos.forEach( alumno => {
+  //   if(alumno.nombre === nombreAlumno)
+  //     {
+  //       //console.log(alumno);
+  //       basededatos.calificaciones.forEach( calificacion => {
+  //         if ((calificacion.alumno === alumno.id) && (calificacion.nota >= 4))
+  //            {
+  //              //console.log(calificacion)
+  //              basededatos.materias.forEach( materia => {
+  //                if (materia.id === calificacion.materia) 
+  //                 //console.log(materia);
+  //                 retorno.push(materia)
+  //               });
+  //            }
+  //       });
+  //     }
+  // });
+  // return retorno;
+  // Segunda resolución
+  const alumno = basededatos.alumnos.filter( alumno => alumno.nombre === nombreAlumno );
+  //console.log(alumno);
+  const calificaciones = basededatos.calificaciones.filter( calificacion => (calificacion.alumno === alumno[0].id) && (calificacion.nota >= 4) );
+  // console.log(calificaciones);
+  calificaciones.forEach( calificacion => {
+    retorno.push ( basededatos.materias.find( materia => materia.id === calificacion.materia ) );
+  });
+  // console.log(retorno);
+  return retorno;
 };
 
 /**
@@ -66,10 +95,45 @@ export const materiasAprobadasByNombreAlumno = (nombreAlumno) => {
          { id: 2, nombre: 'Alina Robles', edad: 21, provincia: 2 },
       ]
     }
- * @param {string} nombreUniversidad
- */
+    * @param {string} nombreUniversidad
+    */
+
 export const expandirInfoUniversidadByNombre = (nombreUniversidad) => {
-  return {};
+  let resultado = {};
+  //resultado.id = 1
+
+  basededatos.universidades.forEach( universidad => {
+    if (universidad.nombre === nombreUniversidad) {
+      resultado = {...universidad}
+    };
+    
+    resultado = {
+      ...resultado,
+      materias: basededatos.materias.filter( (materia) => {
+        if (materia.universidad === resultado.id) {
+          materia.profesores = [];
+          return materia;
+        }
+      }),
+      profesores: basededatos.profesores.filter((profesores) =>{
+        if(profesores.id === 1){
+          return profesores;
+        }
+      })
+    }
+    
+   
+  }); 
+ 
+  //     basededatos.materias.forEach( materia => {
+  //       if (materia.universidad === universidad.id) {
+  //         //console.log(materia);
+  //         // resultado.materias.push(materia)
+  //       }
+  //     })
+  // console.log(resultado);
+  
+  return resultado;
 };
 
 // /**
