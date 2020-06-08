@@ -1,10 +1,10 @@
 import {
-  materiasAprobadasByNombreAlumno,
-  expandirInfoUniversidadByNombre,
-  promedioDeEdad,
-  alumnosConPromedioMayorA,
-  materiasSinAlumnosAnotados,
-  promedioDeEdadByUniversidadId
+    materiasAprobadasByNombreAlumno,
+    expandirInfoUniversidadByNombre,
+    promedioDeEdad,
+    alumnosConPromedioMayorA,
+    materiasSinAlumnosAnotados,
+    promedioDeEdadByUniversidadId
 } from './moduloEjercicios';
 
 import baseDeDatos from './basededatos';
@@ -15,14 +15,19 @@ console.log('------------------------------------------------------');
 console.log('Ejecutando ejercicios materiasAprobadasByNombreAlumno.');
 
 const materiasAprobadasPorSuzana = materiasAprobadasByNombreAlumno(
-  'Suzana Mendez'
+    'Suzana Mendez'
 );
 console.log('Materias aprobadas por Suzana:', materiasAprobadasPorSuzana);
 
 const materiasAprobadasPorAlina = materiasAprobadasByNombreAlumno(
-  'Alina Robles'
+    'Alina Robles'
 );
 console.log('Materias aprobadas por Alina:', materiasAprobadasPorAlina);
+
+const materiasAprobadasPorJuan = materiasAprobadasByNombreAlumno(
+    'Juan Ete Rojo'
+);
+console.log('Materias aprobadas por Juan:', materiasAprobadasPorJuan);
 
 // expandirInfoUniversidadByNombre
 
@@ -30,12 +35,12 @@ console.log('------------------------------------------------------');
 console.log('Ejecutando ejercicios expandirInfoUniversidadByNombre.');
 
 const infoUniversidadComahue = expandirInfoUniversidadByNombre(
-  'Universidad del Comahue'
+    'Universidad del Comahue'
 );
 console.log('Info comahue:', infoUniversidadComahue);
 
 const infoUniversidadRio = expandirInfoUniversidadByNombre(
-  'Universidad de Rio Negro'
+    'Universidad de Rio Negro'
 );
 console.log('Info rio negro:', infoUniversidadRio);
 
